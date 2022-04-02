@@ -34,7 +34,15 @@ if(evt.key==="Enter"){
 }
 }
   if(imageTime==="Clouds"){
-    img=" nori"
+    img="cu nori"
+  }else if (imageTime==="Mist"){
+    img = "cu ceata"
+  }else if(imageTime==="Snow"){
+    img= " cu zapada"
+  }else if(imageTime==="Rain"){
+    img="ploua"
+  }else if (imageTime==="Snow"){
+    img= "cer limpede"
   }
   
   return (
@@ -50,7 +58,7 @@ onKeyPress={search}></input>
 
 {!!weather.main &&<li> sunt {weather.main.temp}</li>}
 
-<li>cu {img}</li>
+<li> {img}</li>
 
    </ul>
  </div>
