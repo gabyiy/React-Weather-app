@@ -50,6 +50,7 @@ onKeyPress={search}></input>
 {!!weather.main &&<li>{weather.main.temp}</li>}
 
 <li>{img}</li>
+<button>Push</button>
    </ul>
  </div>
   );
