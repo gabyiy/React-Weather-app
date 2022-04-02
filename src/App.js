@@ -34,7 +34,7 @@ if(evt.key==="Enter"){
 }
 }
   if(imageTime==="Clouds"){
-    img="sunt nori"
+    img=" nori"
   }
   
   return (
@@ -46,11 +46,12 @@ if(evt.key==="Enter"){
 value={query}
 
 onKeyPress={search}></input>
+{!!weather.main && <li>In {weather.name}</li>}
 
-{!!weather.main &&<li>{weather.main.temp}</li>}
+{!!weather.main &&<li> sunt {weather.main.temp}</li>}
 
-<li>{img}</li>
-<button>Push</button>
+<li>cu {img}</li>
+
    </ul>
  </div>
   );
