@@ -1,5 +1,4 @@
-import React,{useState} from "react"
-import Input from "./Ui/Input"
+import React,{useEffect, useState} from "react"
 
 const SelectedCity= (props)=>{
 
@@ -8,29 +7,34 @@ const SelectedCity= (props)=>{
     const [weather,setWheather]=useState({})
     const [imageTime,setImageTime]=useState("")
 
-const retriveDataHandler=(weatherData)=>{
-    setWheather(weatherData)
-  props.setCity(true)
-    setImageTime(weatherData.weather[0].main)
+    useEffect(()=>{
+const retriveDataHandler=()=>{
+    setWheather(props.addData)
+ 
+    setImageTime(props.addData.weather[0].main)
 }
+retriveDataHandler()
+
+},[props.addData])
 
 if(imageTime==="Clouds"){
-    img="cu nori"
-  }else if (imageTime==="Mist"){
-    img = "cu ceata"
-  }else if(imageTime==="Snow"){
-    img= " cu zapada"
-  }else if(imageTime==="Rain"){
-    img="ploua"
-  }else if (imageTime==="Snow"){
-    img= "cer limpede"
-  }
+  img="con nubes"
+}else if (imageTime==="Mist"){
+  img = "con niebla"
+}else if(imageTime==="Snow"){
+  img= " con nieve"
+}else if(imageTime==="Rain"){
+  img="con lluvia"
+}else if (imageTime==="Snow"){
+  img= "ciello despejado"
+}
+
 
     return (
   
    <div>
      <ul>
-   <Input adData={retriveDataHandler} />
+  
   {!!weather.main && <li>In {weather.name}</li>}
   
   {!!weather.main &&<li> sunt {Math.round(weather.main.temp)}</li>}

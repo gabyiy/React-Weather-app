@@ -2,17 +2,23 @@ import React,{Fragment, useState} from 'react';
 import './App.css';
 import SelectedCity from './components/SelectedCity';
 import StaticCity from './components/StaticCity';
+import Input from './components/Ui/Input';
 
 
 function App() {
 
 const [selectCity,setSelectedCity]=useState(false)
+const [data,setData]=useState({})
 
-console.log(selectCity);
+const dataHandler=(data)=>{
+setData(data)
+
+}
  return(
    <Fragment>
-  {!selectCity?<><StaticCity/><SelectedCity setCity={setSelectedCity}/></>: 
-  <>  <SelectedCity setCity={setSelectedCity}/></> }
+   <Input getData={dataHandler}  setCity={setSelectedCity}/>
+  {!selectCity?<StaticCity/>: 
+    <SelectedCity addData={data} /> }
    </Fragment>
  )
 }

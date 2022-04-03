@@ -36,15 +36,15 @@ const StaticCity= ()=>{
 },[]) 
   
     if(imageTime==="Clouds"){
-      img="cu nori"
+      img="con nubes"
     }else if (imageTime==="Mist"){
-      img = "cu ceata"
+      img = "con niebla"
     }else if(imageTime==="Snow"){
-      img= " cu zapada"
+      img= " con nieve"
     }else if(imageTime==="Rain"){
-      img="ploua"
+      img="con lluvia"
     }else if (imageTime==="Snow"){
-      img= "cer limpede"
+      img= "ciello despejado"
     }
     
     return (
@@ -53,6 +53,7 @@ const StaticCity= ()=>{
      <ul>
     <li>{weather.name}</li>
     {!!weather.main &&<li> sunt {Math.round(weather.main.temp)}</li>}
+    <li>{img}</li>
      </ul>
    </div>
     );
