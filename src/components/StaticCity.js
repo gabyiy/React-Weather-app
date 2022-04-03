@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from "react"
-import Input from "./Ui/Input"
 
 const StaticCity= ()=>{
 
@@ -10,10 +9,7 @@ const StaticCity= ()=>{
     const [query,setQuery]=useState("")
   const [weather,setWheather]=useState({})
 
-  const [lat,setLat]=useState("")
 
-  const [lon,setLong]=useState("")
-  
   const [imageTime,setImageTime]=useState("")
   
   const api={
@@ -58,20 +54,6 @@ const StaticCity= ()=>{
 
  
 },[]) 
-
-
-
- 
-
-
-
-
-
-
-  
-  
-
-console.log(lon);
 
   
     if(imageTime==="Clouds"){
