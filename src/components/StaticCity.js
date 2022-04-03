@@ -9,6 +9,10 @@ const StaticCity= ()=>{
 
     const [query,setQuery]=useState("")
   const [weather,setWheather]=useState({})
+
+  const [lat,setLat]=useState("")
+
+  const [lon,setLong]=useState("")
   
   const [imageTime,setImageTime]=useState("")
   
@@ -19,21 +23,56 @@ const StaticCity= ()=>{
   
   
  useEffect(()=>{
-  const cityHandler= async()=>{
+
+  const weatherInit = () => {
+
+    const success = (position) => {
+      cityHandler(position.coords.latitude, position.coords.longitude);
+    }
   
+    const error = () => {
+      alert('Unable to retrieve location.');
+    }
   
-    const response=await fetch(`${api.url}weather?&q=madrid&appid=${api.key}&units=metric`)
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      alert('Your browser does not support location tracking, or permission is denied.');
+    }
+  }
+  weatherInit()
+
+
+
+  const cityHandler= async(lat,lon)=>{
+
+  
+    const response=await fetch(`${api.url}weather?&lat=${lat}&lon=${lon}&appid=${api.key}&units=metric`)
     const data =await response.json()
     
       setWheather(data)
       setQuery("")
-  
-      setImageTime(data.weather[0].main)
-      console.log(data);
-  
+
   }
   cityHandler()
+
+ 
 },[]) 
+
+
+
+ 
+
+
+
+
+
+
+  
+  
+
+console.log(lon);
+
   
     if(imageTime==="Clouds"){
       img="con nubes"
