@@ -9,7 +9,7 @@ const StaticCity = () => {
 
   const api = {
     key: "dbafe88a6b45337add3d8fb21f6cea2e",
-    url: "https://api.openweathermap.org/data/2.5/",
+    url: "https://api.openweathermap.org/data/2.5/onecall?",
   };
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const StaticCity = () => {
 
     const cityHandler = async (lat, lon) => {
       const response = await fetch(
-        `${api.url}weather?&lat=${lat}&lon=${lon}&appid=${api.key}&units=metric`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=38.7267&lon=-9.1403&units=metric&appid=dbafe88a6b45337add3d8fb21f6cea2e`
       );
       const data = await response.json();
 
