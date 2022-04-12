@@ -1,4 +1,5 @@
 import React,{useState} from "react"
+import "./Input.css"
 
 
 const Input = (props)=>{
@@ -26,12 +27,14 @@ const Input = (props)=>{
   }
 
     return(
-
+<div className="inp">
 <input  onChange={e => setQuery(e.target.value)}
   
   value={query}
   
   onKeyPress={search}></input>
+
+</div>
     )
 }
 export default Input

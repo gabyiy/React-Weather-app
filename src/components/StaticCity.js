@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from "react";
-import "./images/minimal_nat.png";
+import "./StatiCity.css"
 
-const StaticCity = () => {
+const StaticCity = (props) => {
   var img = "";
+  var   myStyleStatic={  backgroundImage: 
+    "url(/images/withCloudsDay.jpg)",
+        height:'100vh',
+       
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }
+
 
   const [weather, setWheather] = useState({});
 
@@ -14,14 +22,9 @@ const StaticCity = () => {
     url: "https://api.openweathermap.org/data/2.5/",
   };
 
-  const myStyle = {
-    backgroundImage: image,
-    height: "100vh",
-    marginTop: "-70px",
-    fontSize: "50px",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-  };
+
+
+
 
   useEffect(() => {
     const weatherInit = () => {
@@ -50,33 +53,47 @@ const StaticCity = () => {
       const data = await response.json();
 
       setWheather(data);
+
+      setImageTime(data.weather[0].main)
     };
     if (dispach) {
       cityHandler();
     }
+  
   }, []);
 
   console.log(weather);
+  console.log(imageTime)
 
   if (imageTime === "Clouds") {
-    img = "con nubes";
+    img = "cu nori"
+    props.getImg("url(/images/withCloudsDay.avif)")
+
   } else if (imageTime === "Mist") {
-    img = "con niebla";
+    img = "cu ceata";
   } else if (imageTime === "Snow") {
-    img = " con nieve";
+    img = " cu zapada";
   } else if (imageTime === "Rain") {
-    img = "con lluvia";
+    img = "cu ploaie";
   } else if (imageTime === "Snow") {
-    img = "ciello despejado";
+    img = " cu ninsoare";
+  }else if (imageTime==="Clear"){
+    img= "cer limpede"
+    props.getImg("url(/images/clearSkyDay.jpg")
   }
 
   return (
-    <div style={myStyle}>
-      <ul>
+    <div className="main-page" >
+      <div>
+      <ul >
         <li>{weather.name}</li>
         {!!weather.main && <li> sunt {Math.round(weather.main.temp)}</li>}
         <li>{img}</li>
       </ul>
+      </div>
+      <div className="blurDiv">
+    <h1>GG</h1>
+      </div>
     </div>
   );
 };

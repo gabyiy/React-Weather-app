@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from "react"
+import "./SelectedCity.css"
 
 const SelectedCity= (props)=>{
 
@@ -13,26 +14,35 @@ const retriveDataHandler=()=>{
  
     setImageTime(props.addData.weather[0].main)
 }
+console.log(weather)
+console.log(imageTime)
 retriveDataHandler()
+
+props.getImgNStatic()
 
 },[props.addData])
 
-if(imageTime==="Clouds"){
-  img="con nubes"
-}else if (imageTime==="Mist"){
-  img = "con niebla"
-}else if(imageTime==="Snow"){
-  img= " con nieve"
-}else if(imageTime==="Rain"){
-  img="con lluvia"
-}else if (imageTime==="Snow"){
-  img= "ciello despejado"
-}
 
+  if (imageTime === "Clouds") {
+    img = "cu nori"
+    props.getImgNStatic("url(/images/withCloudsDay.avif)")
 
+  } else if (imageTime === "Mist") {
+    img = "cu ceata";
+  } else if (imageTime === "Snow") {
+    img = " cu zapada";
+  } else if (imageTime === "Rain") {
+    img = "cu ploaie";
+  } else if (imageTime === "Snow") {
+    img = " cu ninsoare";
+  }else if (imageTime==="Clear"){
+    img= "cer limpede"
+    props.getImgNStatic("url(/images/clearSkyDay.jpg)")
+  
+} 
     return (
   
-   <div>
+   <div >
      <ul>
   
   {!!weather.main && <li>In {weather.name}</li>}
