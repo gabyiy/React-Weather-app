@@ -25,7 +25,6 @@ var myStyle={
   backgroundImage: 
 imgStatic,
   height:'100vh',
-  fontSize:'50px',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
 };
@@ -34,7 +33,6 @@ imgStatic,
     backgroundImage: 
   imgNotStatic,
     height:'100vh',
-    fontSize:'50px',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
   };
@@ -42,9 +40,13 @@ imgStatic,
 console.log(imgNotStatic)
  return(
  <div style={myStyle}>
+  
    <Input getData={dataHandler}  setCity={setSelectedCity}/>
+  
   {!selectCity?<StaticCity getImg={imgHandler}/>: 
     <SelectedCity addData={data} getImgNStatic={imgHandler} /> }
+   
+  
    </div>
  )
 }

@@ -42,7 +42,7 @@ props.getImgNStatic()
 } 
     return (
   
-   <div >
+   <div className="text">
      <ul>
   
   {!!weather.main && <li>In {weather.name}</li>}

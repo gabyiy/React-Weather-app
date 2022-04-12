@@ -1,11 +1,75 @@
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+
 .main-page{
     display: flex;
+    justify-content: space-between;
+    color:white;
+    
 }
 
 .blurDiv{
     background: rgba(255, 255, 255, 0.2); 
     backdrop-filter: blur(8px); 
-    height:100%;
-      width: 500px
+    height: auto;
+  width: 400px;
+  margin-right: 20px;
+  margin-top: 150px;
+  border-radius: 3px;
+  padding: 15px;
   }
 
+  .data{
+      color: beige;
+  }
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.center{
+   
+    text-align: center;
+}
+
+.city{
+    display: flex;
+    padding: 33rem 0 0 50px;
+}
+.temp{
+    font-weight: 700;
+    font-size: 100px;
+}
+
+.cityName{
+ 
+    font-weight: 700;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.date-city{
+    padding-left:  20px;
+}
+.img-sky{
+
+  padding:55px 0 0 0  ;
+  font-weight: 900;
+
+}
+
+.sky{
+    padding-left: 10px;
+    font-size: 20px;
+}
+.date{
+ font-weight: 900;
+ text-align: center;
+  
+}

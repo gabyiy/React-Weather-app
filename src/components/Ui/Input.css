@@ -1,3 +1,48 @@
-inp{
-padding-top: 100px;
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+
 }
+
+.textWeather{
+    color: white;
+    font-size: 400;
+}
+
+
+
+input {
+    background: rgba(255,255,255,0.3);
+    border-radius: 3%;
+    border: none;
+    position: relative;
+    display: block;
+    outline: none;
+    width: 200px;
+    height: 30p;
+    top:500px;
+    left:230px;
+    margin: 0 ;
+    padding: 10px;
+    color: #333;
+    -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+  }
+  input:focus { 
+    outline: none !important;
+    border-color: white;
+    box-shadow: 0 0 10px white;
+ }
+ input, select, textarea{
+    color: white;
+    font-size:20px;
+}
+  ::-webkit-input-placeholder { color: #666;} 
+  :-moz-placeholder { color: #666; }
+  ::-moz-placeholder { color: #666; }
+  :-ms-input-placeholder { color: #666; }
+  ::placeholder{
+      color:white;
+      font-size: 100;
+  }

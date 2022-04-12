@@ -27,14 +27,16 @@ const Input = (props)=>{
   }
 
     return(
-<div className="inp">
+   
+      
+
 <input  onChange={e => setQuery(e.target.value)}
   
   value={query}
   
-  onKeyPress={search}></input>
+  onKeyPress={search} placeholder="Enter city"></input>
 
-</div>
+
     )
 }
 export default Input

@@ -3,16 +3,24 @@ import "./StatiCity.css"
 
 const StaticCity = (props) => {
   var img = "";
-  var   myStyleStatic={  backgroundImage: 
-    "url(/images/withCloudsDay.jpg)",
-        height:'100vh',
-       
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-      }
 
+  var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
 
   const [weather, setWheather] = useState({});
+  const [icon,setIcon]=useState("")
+  const[clouds,setClouds]=useState("")
+  const [humidity,setHumidity]=useState("")
+  const [wind,setWind]=useState("")
+  const [temp,setTemp]=useState("")
+  const [tempMax,setTempMax]=useState("")
+  const [minTemp,setMinTemp]=useState("")
+  const [feelsLike,setFeelsLike]=useState("")
+  const [city,setCity]=useState("")
 
   const [imageTime, setImageTime] = useState("");
   const [dispach, setDispach] = useState(false);
@@ -23,7 +31,7 @@ const StaticCity = (props) => {
   };
 
 
-
+const imaine= `http://openweathermap.org/img/wn/${icon}.png`
 
 
   useEffect(() => {
@@ -55,6 +63,16 @@ const StaticCity = (props) => {
       setWheather(data);
 
       setImageTime(data.weather[0].main)
+      setClouds(data.clouds.all)
+      setHumidity(data.main.humidity)
+      setWind(Math.round(data.wind.speed))
+      setTempMax(Math.round(data.main.temp_max))
+      setMinTemp(Math.round(data.main.temp_min))
+      setFeelsLike(Math.round(data.main.feels_like))
+      setTemp(Math.round(data.main.temp))
+      setCity(data.name)
+      setIcon(data.weather[0].icon)
+    
     };
     if (dispach) {
       cityHandler();
@@ -63,7 +81,6 @@ const StaticCity = (props) => {
   }, []);
 
   console.log(weather);
-  console.log(imageTime)
 
   if (imageTime === "Clouds") {
     img = "cu nori"
@@ -78,21 +95,64 @@ const StaticCity = (props) => {
   } else if (imageTime === "Snow") {
     img = " cu ninsoare";
   }else if (imageTime==="Clear"){
-    img= "cer limpede"
+    img= "cer limpede "
     props.getImg("url(/images/clearSkyDay.jpg")
   }
 
   return (
     <div className="main-page" >
-      <div>
-      <ul >
-        <li>{weather.name}</li>
-        {!!weather.main && <li> sunt {Math.round(weather.main.temp)}</li>}
-        <li>{img}</li>
-      </ul>
+      <div className="city">
+     <div className="temp">{temp}°</div>
+    
+     <div className="date-city">
+       <h1  className="cityName"> {city}</h1>
+     <div className="date">{today}</div>
+     </div> 
+     <div className="img-sky">
+       <div>
+        <img src={imaine} />
+        </div>
+       <div className="sky">
+{imageTime}
+       </div>
+     
+     </div>
+    
       </div>
       <div className="blurDiv">
-    <h1>GG</h1>
+        <div className="center">
+    <h4>Weather details</h4>
+    <hr></hr>
+    </div>
+    <div className="flex">
+      <h4>Temperature</h4>
+      <h4>{temp}°</h4>
+    </div>
+    <div className="flex">
+      <h4>Max temp</h4>
+      <h4>{tempMax}°</h4>
+    </div>
+    <div className="flex">
+      <h4>Min temp</h4>
+      <h4>{minTemp}°</h4>
+    </div>
+    <div className="flex">
+      <h4>Feels like</h4>
+      <h4>{feelsLike}°</h4>
+    </div>
+    <div className="flex">
+      <h4>Clouds</h4>
+      <h4>{clouds}%</h4>
+    </div>
+    <div className="flex">
+      <h4>Humidity</h4>
+      <h4>{humidity}%</h4>
+    </div>
+    <div className="flex">
+      <h4>Wind</h4>
+      <h4>{wind}km/h</h4>
+  
+    </div>
       </div>
     </div>
   );
