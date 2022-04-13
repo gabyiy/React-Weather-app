@@ -115,4 +115,8 @@ body {
     .date{
         padding-top: 8px;
     }
+
+    h4{
+      margin: 15px 0 15px 0;  
+    }
 }
