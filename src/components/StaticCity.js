@@ -106,11 +106,11 @@ if (imageTime === "Clouds"&& hh>=8 && hh<=21  ) {
 } else if (imageTime === "Rain") {
   props.getImg("url(/images/rainy-night.jpg)")
 }
- else if (imageTime==="Clear"){
+ else if (imageTime==="Clear"  && hh>=8 && hh<=21){
 
   props.getImg("url(/images/clearSkyDay.jpg)")
 
-} else if (imageTime==="Clear" && hh>=8 && hh<=21){
+} else if (imageTime==="Clear"){
 
 props.getImg("url(/images/clearSkyNigth.jpg)")
 
