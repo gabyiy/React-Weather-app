@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./StatiCity.css"
+import "./StaticCityAndSelectedCity.css"
 
 const StaticCity = (props) => {
   var img = "";
@@ -80,7 +80,6 @@ const imaine= `http://openweathermap.org/img/wn/${icon}.png`
   
   }, []);
 
-  console.log(weather);
 
   if (imageTime === "Clouds") {
     img = "cu nori"

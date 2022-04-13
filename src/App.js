@@ -37,7 +37,6 @@ imgStatic,
     backgroundRepeat: 'no-repeat',
   };
 }
-console.log(imgNotStatic)
  return(
  <div style={myStyle}>
   
