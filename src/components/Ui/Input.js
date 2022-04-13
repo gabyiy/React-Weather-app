@@ -19,10 +19,10 @@ const Input = (props)=>{
     const response=await fetch(`${api.url}weather?&q=${query}&appid=${api.key}&units=metric`)
     const data =await response.json()
     props.getData(data)
+    if(data.cod==200){
     props.setCity(true)
       setQuery("")
-    
-  
+    }
   }
   }
 
