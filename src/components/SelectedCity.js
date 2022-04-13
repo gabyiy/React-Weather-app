@@ -73,11 +73,11 @@ const imaine= `http://openweathermap.org/img/wn/${icon}.png`
   } else if (imageTime === "Rain"  ||imageTime ==="Drizzle") {
     props.getImgNStatic("url(/images/rainy-night.jpg)")
   }
-   else if (imageTime==="Clear"){
+   else if (imageTime==="Clear" && hh>=8 && hh<=20){
   
     props.getImgNStatic("url(/images/clearSkyDay.jpg)")
   
-} else if (imageTime==="Clear" && hh>=8 && hh<=20){
+} else if (imageTime==="Clear"){
   
   props.getImgNStatic("url(/images/clearSkyNigth.jpg)")
 
