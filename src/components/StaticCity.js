@@ -80,23 +80,21 @@ const imaine= `http://openweathermap.org/img/wn/${icon}.png`
   
   }, []);
 
-
   if (imageTime === "Clouds") {
-    img = "cu nori"
     props.getImg("url(/images/withCloudsDay.avif)")
 
   } else if (imageTime === "Mist") {
-    img = "cu ceata";
+    props.getImg("url(/images/mist.webp)")
   } else if (imageTime === "Snow") {
-    img = " cu zapada";
+    props.getImg("url(/images/snow.jpg)")
+
   } else if (imageTime === "Rain") {
-    img = "cu ploaie";
-  } else if (imageTime === "Snow") {
-    img = " cu ninsoare";
-  }else if (imageTime==="Clear"){
-    img= "cer limpede "
-    props.getImg("url(/images/clearSkyDay.jpg")
-  }
+    props.getImg("url(/images/rain.jpg)")
+  } else if (imageTime==="Clear"){
+  
+    props.getImg("url(/images/clearSkyDay.jpg)")
+  
+} 
 
   return (
     <div className="main-page" >

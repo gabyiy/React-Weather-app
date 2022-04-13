@@ -49,21 +49,20 @@ props.getImgNStatic()
 
 },[props.addData])
 
+const imaine= `http://openweathermap.org/img/wn/${icon}.png`
 
   if (imageTime === "Clouds") {
-    img = "cu nori"
     props.getImgNStatic("url(/images/withCloudsDay.avif)")
 
   } else if (imageTime === "Mist") {
-    img = "cu ceata";
+    props.getImgNStatic("url(/images/mist.webp)")
   } else if (imageTime === "Snow") {
-    img = " cu zapada";
+    props.getImgNStatic("url(/images/snow.jpg)")
+
   } else if (imageTime === "Rain") {
-    img = "cu ploaie";
-  } else if (imageTime === "Snow") {
-    img = " cu ninsoare";
-  }else if (imageTime==="Clear"){
-    img= "cer limpede"
+    props.getImgNStatic("url(/images/rain.jpg)")
+  } else if (imageTime==="Clear"){
+  
     props.getImgNStatic("url(/images/clearSkyDay.jpg)")
   
 } 
@@ -79,7 +78,7 @@ props.getImgNStatic()
      </div> 
      <div className="img-sky">
        <div>
-       
+        <img src={imaine} />
         </div>
        <div className="sky">
 {imageTime}
