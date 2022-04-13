@@ -9,7 +9,7 @@ const SelectedCity= (props)=>{
     var mm = String(today.getMonth() + 1).padStart(2, '0'); 
     var yyyy = today.getFullYear();
     
-    today = hh+ "/" + mm + '/' + dd + '/' + yyyy;
+    today = mm + '/' + dd + '/' + yyyy;
     
       const [icon,setIcon]=useState("")
       const[clouds,setClouds]=useState("")
