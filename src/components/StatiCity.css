@@ -73,3 +73,43 @@ body {
  text-align: center;
   
 }
+
+@media  screen and (max-width: 700px) {
+ 
+   div.main-page{
+        display: block;
+      
+    }
+
+    div.city{
+        padding: 0;
+        justify-content: center;
+        width: auto;
+        height: auto;
+    }
+
+
+    .temp{
+        font-weight: 700;
+        font-size: 50px;
+    }
+    .cityName{
+ 
+        font-weight: 600;
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    .img-sky{
+
+        padding:5px 0 0 10px  ;
+        font-weight: 900;
+      
+      }
+
+    div.blurDiv{
+        width: auto;
+        height: auto;
+        margin: 10px 0 0 0;
+
+    }
+}
