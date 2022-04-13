@@ -5,6 +5,7 @@ const StaticCity = (props) => {
   var img = "";
 
   var today = new Date();
+  var hh=String(today.getHours()).padStart(2, '0')
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); 
 var yyyy = today.getFullYear();
@@ -80,20 +81,39 @@ const imaine= `http://openweathermap.org/img/wn/${icon}.png`
   
   }, []);
 
-  if (imageTime === "Clouds") {
-    props.getImg("url(/images/clouds.avif)")
 
-  } else if (imageTime === "Mist") {
-    props.getImg("url(/images/mist.webp)")
-  } else if (imageTime === "Snow") {
-    props.getImg("url(/images/snow.jpg)")
+if (imageTime === "Clouds"&& hh>=8 && hh<=21  ) {
+  props.getImg("url(/images/clouds.avif)")
 
-  } else if (imageTime === "Rain") {
-    props.getImg("url(/images/rain.jpg)")
-  } else if (imageTime==="Clear"){
-  
-    props.getImg("url(/images/clearSkyDay.jpg)")
-  
+}else if  (imageTime === "Clouds") {
+  props.getImg("url(/images/nigthClouds.jpg)")
+
+}else if (imageTime === "Mist" && hh>=8 && hh<=21) {
+  props.getImg("url(/images/mist.webp)")
+}else if  (imageTime === "Mist") {
+  props.getImg("url(/images/nigthMist.jpg)")
+
+}
+ else if (imageTime === "Snow" && hh>=8 && hh<=21) {
+  props.getImg("url(/images/snow.jpg)")
+
+}else if (imageTime === "Snow") {
+  props.getImg("url(/images/nigthSnow.jpg)")
+
+}
+ else if (imageTime === "Rain" && hh>=8 && hh<=21 ) {
+  props.getImg("url(/images/rain.jpg)")
+} else if (imageTime === "Rain") {
+  props.getImg("url(/images/rainy-night.jpg)")
+}
+ else if (imageTime==="Clear"){
+
+  props.getImg("url(/images/clearSkyDay.jpg)")
+
+} else if (imageTime==="Clear" && hh>=8 && hh<=21){
+
+props.getImg("url(/images/clearSkyNigth.jpg)")
+
 } 
 
   return (
