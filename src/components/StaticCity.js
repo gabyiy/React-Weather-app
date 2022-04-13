@@ -101,9 +101,9 @@ if (imageTime === "Clouds"&& hh>=8 && hh<=21  ) {
   props.getImg("url(/images/nigthSnow.jpg)")
 
 }
- else if (imageTime === "Rain" && hh>=8 && hh<=21 ) {
+ else if (imageTime === "Rain"  ||imageTime ==="Drizzle" && hh>=8 && hh<=21 ) {
   props.getImg("url(/images/rain.jpg)")
-} else if (imageTime === "Rain") {
+} else if (imageTime === "Rain"  ||imageTime ==="Drizzle") {
   props.getImg("url(/images/rainy-night.jpg)")
 }
  else if (imageTime==="Clear"  && hh>=8 && hh<=21){

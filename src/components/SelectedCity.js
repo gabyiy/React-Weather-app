@@ -49,7 +49,7 @@ props.getImgNStatic()
 
 const imaine= `http://openweathermap.org/img/wn/${icon}.png`
 
-  if (imageTime === "Clouds"&& hh>=8 && hh<=21  ) {
+  if (imageTime === "Clouds" && hh>=8 && hh<=21  ) {
     props.getImgNStatic("url(/images/clouds.avif)")
 
   }else if  (imageTime === "Clouds") {
@@ -68,9 +68,9 @@ const imaine= `http://openweathermap.org/img/wn/${icon}.png`
     props.getImgNStatic("url(/images/nigthSnow.jpg)")
 
   }
-   else if (imageTime === "Rain" && hh>=8 && hh<=21 ) {
+   else if (imageTime === "Rain"  ||imageTime ==="Drizzle" && hh>=8 && hh<=21 ) {
     props.getImgNStatic("url(/images/rain.jpg)")
-  } else if (imageTime === "Rain") {
+  } else if (imageTime === "Rain"  ||imageTime ==="Drizzle") {
     props.getImgNStatic("url(/images/rainy-night.jpg)")
   }
    else if (imageTime==="Clear"){
