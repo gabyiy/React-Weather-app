@@ -49,7 +49,7 @@ props.getImgNStatic()
 const imaine= `http://openweathermap.org/img/wn/${icon}.png`
 
   if (imageTime === "Clouds") {
-    props.getImgNStatic("url(/images/withCloudsDay.avif)")
+    props.getImgNStatic("url(/images/clouds.avif)")
 
   } else if (imageTime === "Mist") {
     props.getImgNStatic("url(/images/mist.webp)")

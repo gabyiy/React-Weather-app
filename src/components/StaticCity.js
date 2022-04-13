@@ -81,7 +81,7 @@ const imaine= `http://openweathermap.org/img/wn/${icon}.png`
   }, []);
 
   if (imageTime === "Clouds") {
-    props.getImg("url(/images/withCloudsDay.avif)")
+    props.getImg("url(/images/clouds.avif)")
 
   } else if (imageTime === "Mist") {
     props.getImg("url(/images/mist.webp)")
