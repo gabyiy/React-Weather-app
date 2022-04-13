@@ -101,7 +101,7 @@ body {
     }
     .img-sky{
 
-        padding:5px 0 0 10px  ;
+        padding:10px 0 0 10px  ;
         font-weight: 900;
       
       }
@@ -111,5 +111,8 @@ body {
         height: auto;
         margin: 10px 0 0 0;
 
+    }
+    .date{
+        padding-top: 8px;
     }
 }
