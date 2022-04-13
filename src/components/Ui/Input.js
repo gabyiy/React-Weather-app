@@ -29,12 +29,11 @@ const Input = (props)=>{
     return(
    
       <div className="center-inp">
-
 <input  onChange={e => setQuery(e.target.value)}
   
   value={query}
   
-  onKeyPress={search} placeholder="Enter city"></input>
+  onKeyPress={search} placeholder="Enter city" name="input" id="city"></input>
 </div>
 
     )
