@@ -1,6 +1,0 @@
-.blurDiv{
-    background: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(8px); 
-    height:100%;
-      width: 500px
-  }
