@@ -88,25 +88,25 @@ if (imageTime === "Clouds"&& hh>=8 && hh<20  ) {
 }else if  (imageTime === "Clouds") {
   props.getImg("url(/images/nigthClouds.jpg)")
 
-}else if (imageTime === "Mist" && hh>=8 && hh<20) {
+}else if (imageTime === "Mist"|| imageTime === "Fog" && hh>=7 && hh<20) {
   props.getImg("url(/images/mist.webp)")
-}else if  (imageTime === "Mist") {
+}else if  (imageTime === "Mist"|| imageTime === "Fog") {
   props.getImg("url(/images/nigthMist.jpg)")
 
 }
- else if (imageTime === "Snow" && hh>=8 && hh<20) {
+ else if (imageTime === "Snow" && hh>=7 && hh<20) {
   props.getImg("url(/images/snow.jpg)")
 
 }else if (imageTime === "Snow") {
   props.getImg("url(/images/nigthSnow.jpg)")
 
 }
- else if (imageTime === "Rain"  ||imageTime ==="Drizzle" && hh>=8 && hh<20 ) {
+ else if (imageTime === "Rain"  ||imageTime ==="Drizzle" && hh>=7 && hh<20 ) {
   props.getImg("url(/images/rain.jpg)")
 } else if (imageTime === "Rain"  ||imageTime ==="Drizzle") {
   props.getImg("url(/images/rainy-night.jpg)")
 }
- else if (imageTime==="Clear"  && hh>=8 && hh<20){
+ else if (imageTime==="Clear"  && hh>=7 && hh<20){
 
   props.getImg("url(/images/clearSkyDay.jpg)")
 
