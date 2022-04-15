@@ -4,7 +4,7 @@ import "./StaticCityAndSelectedCity.css"
 const SelectedCity= (props)=>{
 
     var today = new Date();
-    var hh=String(today.getHours()).padStart(2, '0')
+    var hh=22
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); 
     var yyyy = today.getFullYear();
