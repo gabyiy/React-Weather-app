@@ -9,6 +9,13 @@ const SelectedCity= (props)=>{
     var mm = String(today.getMonth() + 1).padStart(2, '0'); 
     var yyyy = today.getFullYear();
     
+
+
+
+
+
+
+    
     today = mm + '/' + dd + '/' + yyyy;
     
       const [icon,setIcon]=useState("")
@@ -39,7 +46,8 @@ const retriveDataHandler=()=>{
     setCity(props.addData.name)
     setIcon(props.addData.weather[0].icon)
 }
-
+console.log(weather)
+console.log(imageTime)
 retriveDataHandler()
 
 props.getImgNStatic()
