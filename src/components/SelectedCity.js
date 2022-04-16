@@ -39,8 +39,7 @@ const retriveDataHandler=()=>{
     setCity(props.addData.name)
     setIcon(props.addData.weather[0].icon)
 }
-console.log(weather)
-console.log(imageTime)
+
 retriveDataHandler()
 
 props.getImgNStatic()
