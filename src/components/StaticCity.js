@@ -32,7 +32,7 @@ today = mm + '/' + dd + '/' + yyyy;
   };
 
 
-
+const imaine= `http://openweathermap.org/img/wn/${icon}.png`
 
 
   useEffect(() => {
@@ -73,16 +73,15 @@ today = mm + '/' + dd + '/' + yyyy;
       setTemp(Math.round(data.main.temp))
       setCity(data.name)
       setIcon(data.weather[0].icon)
+    
     };
-    if (dispach && icon) {
+    if (dispach) {
       cityHandler();
     }
-
+  
   }, []);
-  console.log(icon);
-  const imaine= `http://openweathermap.org/img/wn/${icon}.png`
 
-  console.log(imaine);
+
 if (imageTime === "Clouds"&& hh>=8 && hh<20  ) {
   props.getImg("url(/images/clouds.avif)")
 
@@ -139,7 +138,7 @@ props.getImg("url(/images/clearSkyNigth.jpg)")
       </div>
       <div className="blurDiv">
         <div className="center">
-    <h4>Weather details</h4>
+    <h4>Weather details lol</h4>
     <hr></hr>
     </div>
     <div className="flex">
