@@ -138,7 +138,7 @@ props.getImg("url(/images/clearSkyNigth.jpg)")
       </div>
       <div className="blurDiv">
         <div className="center">
-    <h4>Weather details lol</h4>
+    <h4>Weather details </h4>
     <hr></hr>
     </div>
     <div className="flex">
