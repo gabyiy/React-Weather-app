@@ -9,17 +9,44 @@ function App() {
 
 const [selectCity,setSelectedCity]=useState(false)
 const [data,setData]=useState({})
-
+const [imgStatic,setImgStatic]= useState("")
+const [imgNotStatic,setImgNotStatic]=useState("")
 const dataHandler=(data)=>{
 setData(data)
 
 }
+const imgHandler=(imgStatic)=>{
+  setImgStatic(imgStatic)
+  setImgNotStatic(imgStatic)
+}
+
+if(!selectCity){
+var myStyle={
+  backgroundImage: 
+imgStatic,
+  height:'100vh',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+};
+}else{
+  var myStyle={
+    backgroundImage: 
+  imgNotStatic,
+    height:'100vh',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  };
+}
  return(
-   <Fragment>
+ <div style={myStyle}>
+  
    <Input getData={dataHandler}  setCity={setSelectedCity}/>
-  {!selectCity?<StaticCity/>: 
-    <SelectedCity addData={data} /> }
-   </Fragment>
+  
+  {!selectCity?<StaticCity getImg={imgHandler}/>: 
+    <SelectedCity addData={data} getImgNStatic={imgHandler} /> }
+   
+  
+   </div>
  )
 }
 

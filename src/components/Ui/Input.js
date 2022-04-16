@@ -1,4 +1,5 @@
 import React,{useState} from "react"
+import "./Input.css"
 
 
 const Input = (props)=>{
@@ -18,20 +19,24 @@ const Input = (props)=>{
     const response=await fetch(`${api.url}weather?&q=${query}&appid=${api.key}&units=metric`)
     const data =await response.json()
     props.getData(data)
+    if(data.cod==200){
     props.setCity(true)
       setQuery("")
-    
-  
+    }
   }
   }
+  console.log(query)
 
     return(
-
+   
+      <div className="center-inp">
 <input  onChange={e => setQuery(e.target.value)}
   
   value={query}
   
-  onKeyPress={search}></input>
+  onKeyPress={search} placeholder="Enter city" name="input" id="city"></input>
+</div>
+
     )
 }
 export default Input
