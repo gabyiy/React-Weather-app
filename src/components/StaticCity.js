@@ -32,7 +32,7 @@ today = mm + '/' + dd + '/' + yyyy;
   };
 
 
-const imaine= `http://openweathermap.org/img/wn/${icon}.png`
+
 
 
   useEffect(() => {
@@ -73,15 +73,16 @@ const imaine= `http://openweathermap.org/img/wn/${icon}.png`
       setTemp(Math.round(data.main.temp))
       setCity(data.name)
       setIcon(data.weather[0].icon)
-    
     };
-    if (dispach) {
+    if (dispach && icon) {
       cityHandler();
     }
-  
+
   }, []);
+  console.log(icon);
+  const imaine= `http://openweathermap.org/img/wn/${icon}.png`
 
-
+  console.log(imaine);
 if (imageTime === "Clouds"&& hh>=8 && hh<20  ) {
   props.getImg("url(/images/clouds.avif)")
 
