@@ -25,6 +25,7 @@ const Input = (props)=>{
     }
   }
   }
+  console.log(query)
 
     return(
    
