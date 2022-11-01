@@ -1,8 +1,28 @@
-import React, { useState, useEffect } from "react";
+import axios from "axios";
+import React, { useState, useEffect,useContext, useReducer } from "react";
 import "./StaticCityAndSelectedCity.css"
+import LoadingBox from "./Ui/LoadingBox";
+import CircularProgress from '@mui/material/CircularProgress';
+const reducer =(state,action)=>{
+  switch(action.type){
+    case "FETCH_REQUEST":
+      return{...state ,loading:true};
+case "FETCH_SUCCESS":
+  return{...state , loading:false}
+  case "FETCH_FAIL":
+    return{...state ,loading:false,error:action.payload}
+    default:
+      return state    
+  }
+}
 
 const StaticCity = (props) => {
   var img = "";
+const [{loading,error},dispach]=useReducer(reducer,{
+loading:true,
+error:""
+})
+
 
   var today = new Date();
   var hh=String(today.getHours()).padStart(2, '0')
@@ -24,7 +44,7 @@ today = mm + '/' + dd + '/' + yyyy;
   const [city,setCity]=useState("")
 
   const [imageTime, setImageTime] = useState("");
-  const [dispach, setDispach] = useState(false);
+  const [dis, setDis] = useState(false);
 
   const api = {
     key: "dbafe88a6b45337add3d8fb21f6cea2e",
@@ -52,32 +72,41 @@ const imaine= `http://openweathermap.org/img/wn/${icon}.png`
           "Your browser does not support location tracking, or permission is denied."
         );
       }
-      setDispach(true);
+      setDis(true);
     };
     weatherInit();
+
+  
     const cityHandler = async (lat, lon) => {
-      const response = await fetch(
+  try{
+      dispach({type:"FETCH_REQUEST"})
+      const result  = await axios.get(
         `${api.url}weather?&lat=${lat}&lon=${lon}&appid=${api.key}&units=metric`
       );
-      const data = await response.json();
-
-      setWheather(data);
-
-      setImageTime(data.weather[0].main)
-      setClouds(data.clouds.all)
-      setHumidity(data.main.humidity)
-      setWind(Math.round(data.wind.speed))
-      setTempMax(Math.round(data.main.temp_max))
-      setMinTemp(Math.round(data.main.temp_min))
-      setFeelsLike(Math.round(data.main.feels_like))
-      setTemp(Math.round(data.main.temp))
-      setCity(data.name)
-      setIcon(data.weather[0].icon)
+      dispach({type:"FETCH_SUCCESS"})
+    // const data = await response.json();
     
-    };
+      setWheather(result.data);
+
+      setImageTime(result.data.weather[0].main)
+      setClouds(result.data.clouds.all)
+      setHumidity(result.data.main.humidity)
+      setWind(Math.round(result.data.wind.speed))
+      setTempMax(Math.round(result.data.main.temp_max))
+      setMinTemp(Math.round(result.data.main.temp_min))
+      setFeelsLike(Math.round(result.data.main.feels_like))
+      setTemp(Math.round(result.data.main.temp))
+      setCity(result.data.name)
+      setIcon(result.data.weather[0].icon)
+    }catch(error){
+        dispach({type:"FETCH_FAIL",payload:error.data})
+    }
+    }
     if (dispach) {
       cityHandler();
-    }
+    } 
+  
+    
   
   }, []);
 
@@ -116,7 +145,10 @@ props.getImg("url(/images/clearSkyNigth.jpg)")
 
 } 
 
-  return (
+  return loading?
+  <div style={{textAlign:"center"}}><CircularProgress color="inherit" /></div>
+    :error?
+    <div>Erorr</div>:
     <div className="main-page" >
       <div className="city">
      <div className="temp">{temp}°</div>
@@ -172,7 +204,7 @@ props.getImg("url(/images/clearSkyNigth.jpg)")
     </div>
       </div>
     </div>
-  );
+  
 };
 
 export default StaticCity;
